@@ -1,0 +1,23 @@
+:host {
+  height: 100%;
+
+  div.button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    &.clicked {
+      background-color: lightgray;
+    }
+
+    div.button-logo {
+      height: 48px;
+      width: 48px;
+      background: url(hamburger.svg.png) no-repeat center center;
+      background-size: cover;
+    }
+  }
+}

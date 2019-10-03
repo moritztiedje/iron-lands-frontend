@@ -1,0 +1,6 @@
+<div [ngClass]="{'image-first': imagefirst}" class="{{getWindowSize()}} {{imagewidth}}">
+  <div class="text">
+    <ng-content></ng-content>
+  </div>
+  <div class="image" [ngStyle]="{'background-image': image}"></div>
+</div>

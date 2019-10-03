@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  background: lightgray;
+
+  app-image-text-box.desktop {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    &:first-child {
+      padding-top: 20px;
+    }
+  }
+
+  div.emphasized-link ::ng-deep {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    a {
+      color: black;
+      border: solid 5px black;
+      padding: 5px;
+
+      &:hover {
+        color: lightblue;
+        border-color: lightblue;
+      }
+    }
+  }
+}

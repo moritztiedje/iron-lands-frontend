@@ -1,0 +1,5 @@
+<app-character *ngIf="characterPageSelected()"></app-character>
+<app-location *ngIf="locationPageSelected()"></app-location>
+<app-messages *ngIf="messagesPageSelected()"></app-messages>
+<app-under-construction *ngIf="unimplementedPageSelected()"></app-under-construction>
+<div class="gray-overlay" *ngIf="!enabled"></div>

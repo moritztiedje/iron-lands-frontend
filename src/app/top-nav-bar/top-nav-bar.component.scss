@@ -1,0 +1,60 @@
+div.desktop, div.mobile {
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: solid 4px black;
+  height: 100%;
+  box-sizing: border-box;
+
+  div.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    div.image {
+      background: red;
+      background-size: cover;
+      height: 90%;
+    }
+
+    div.text {
+      font-family: Karla;
+    }
+  }
+}
+
+div.desktop {
+  div.logo {
+    width: 200px;
+    padding-left: 35px;
+
+    div.image {
+      width: 58px;
+    }
+
+    div.text {
+      width: calc(100% - 58px);
+    }
+  }
+}
+
+
+div.mobile {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  div.logo {
+    padding-left: 5px;
+
+    div.image {
+      width: 38px;
+    }
+
+    div.text {
+      width: 100px;
+      font-size: 11px;
+    }
+  }
+}
+

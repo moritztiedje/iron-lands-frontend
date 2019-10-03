@@ -1,0 +1,59 @@
+:host > div {
+  color: black;
+  font-family: 'Karla';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+:host.desktop > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+
+  &.highlighted > div {
+      border-bottom: solid 6px black;
+  }
+
+  &:hover {
+    color: lightblue;
+
+    &.highlighted > div {
+      border-color: lightblue;
+    }
+
+    &.selected {
+      color: black;
+
+      &.highlighted > div {
+        border-color: black;
+      }
+    }
+  }
+
+  &.selected {
+    background-color: lightgray;
+  }
+}
+
+:host.mobile {
+  position: fixed;
+  right: 0px;
+  box-shadow: -10px 10px 20px grey;
+  background-color: white;
+  z-index: 1;
+
+  > div {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &.selected {
+      color: lightblue;
+    }
+  }
+}

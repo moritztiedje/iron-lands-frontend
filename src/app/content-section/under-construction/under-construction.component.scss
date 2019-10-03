@@ -1,0 +1,15 @@
+div {
+  height: 100%;
+
+  h1 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 20px;
+  }
+
+  div.unicorn {
+    height: 50%;
+    width: 100%;
+    background: url(unicorn.jpg) no-repeat center center;
+  }
+}
