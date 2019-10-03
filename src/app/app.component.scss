@@ -1,0 +1,27 @@
+app-top-nav-bar {
+  width: 100%;
+  display: block;
+
+  &.desktop {
+    height: 100px;
+  }
+
+  &.mobile {
+    height: 64px;
+  }
+}
+
+app-content-section {
+  width: 100%;
+  display: block;
+  overflow: auto;
+  position: relative;
+
+  &.desktop {
+    height: calc(100% - 100px);
+  }
+
+  &.mobile {
+    height: calc(100% - 64px);
+  }
+}
