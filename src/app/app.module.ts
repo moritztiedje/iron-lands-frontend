@@ -25,7 +25,7 @@ import { loginReducer } from './redux/login';
             activeContent: activeContentReducer,
             windowSize: windowSizeReducer,
             enabledContent: disableContentReducer,
-            loggedIn: loginReducer
+            username: loginReducer
         })
     ],
     providers: [],
@@ -37,5 +37,5 @@ export interface PageState {
     activeContent: ContentPages;
     windowSize: WindowSizes;
     enabledContent: boolean;
-    loggedIn: boolean
+    username: string
 }

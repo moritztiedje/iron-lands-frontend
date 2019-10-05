@@ -11,12 +11,12 @@ import { WindowResizedAction, WindowSizes } from './redux/window-size';
 export class AppComponent {
     store: Store<PageState>;
     windowSize: WindowSizes;
-    loggedIn: boolean;
+    username: string;
 
     constructor(store: Store<PageState>) {
         store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
         store.subscribe(pageState => this.windowSize = pageState.windowSize);
-        store.subscribe(pageState => this.loggedIn = pageState.loggedIn);
+        store.subscribe(pageState => this.username = pageState.username);
         this.store = store;
     }
 
@@ -33,7 +33,7 @@ export class AppComponent {
     }
 
     isLoggedIn() {
-        return this.loggedIn;
+        return this.username != null && this.username != "";
     }
 
 }
