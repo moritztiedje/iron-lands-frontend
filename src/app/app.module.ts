@@ -9,28 +9,33 @@ import { ContentSectionComponent } from './content-section/content-section.compo
 import { ContentSectionModule } from './content-section/content-section.module';
 import { windowSizeReducer, WindowSizes } from './redux/window-size';
 import { disableContentReducer } from './redux/disabled-content';
+import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { loginReducer } from './redux/login';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    TopNavBarModule,
-    ContentSectionModule,
-    StoreModule.forRoot({
-      activeContent: activeContentReducer,
-      windowSize: windowSizeReducer,
-      enabledContent: disableContentReducer
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginScreenComponent
+    ],
+    imports: [
+        BrowserModule,
+        TopNavBarModule,
+        ContentSectionModule,
+        StoreModule.forRoot({
+            activeContent: activeContentReducer,
+            windowSize: windowSizeReducer,
+            enabledContent: disableContentReducer,
+            loggedIn: loginReducer
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 export interface PageState {
-  activeContent: ContentPages;
-  windowSize: WindowSizes;
-  enabledContent: boolean;
+    activeContent: ContentPages;
+    windowSize: WindowSizes;
+    enabledContent: boolean;
+    loggedIn: boolean
 }

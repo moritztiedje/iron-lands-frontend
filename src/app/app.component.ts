@@ -4,30 +4,36 @@ import { PageState } from './app.module';
 import { WindowResizedAction, WindowSizes } from './redux/window-size';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  store: Store<PageState>;
-  windowSize: WindowSizes;
+    store: Store<PageState>;
+    windowSize: WindowSizes;
+    loggedIn: boolean;
 
-  constructor(store: Store<PageState>) {
-    store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
-    store.subscribe(pageState => this.windowSize = pageState.windowSize)
-    this.store = store;
-  }
+    constructor(store: Store<PageState>) {
+        store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
+        store.subscribe(pageState => this.windowSize = pageState.windowSize);
+        store.subscribe(pageState => this.loggedIn = pageState.loggedIn);
+        this.store = store;
+    }
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event?) {
-    this.store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
-  }
+    @HostListener('window:resize', ['$event'])
+    onWindowResize(event?) {
+        this.store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
+    }
 
-  getDisplayModeClass() {
-    if (this.windowSize === WindowSizes.Mobile)
-      return 'mobile';
-    else
-      return 'desktop';
-  }
+    getDisplayModeClass() {
+        if (this.windowSize === WindowSizes.Mobile)
+            return 'mobile';
+        else
+            return 'desktop';
+    }
+
+    isLoggedIn() {
+        return this.loggedIn;
+    }
 
 }

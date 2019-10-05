@@ -1,3 +1,7 @@
-<app-top-nav-bar class="{{getDisplayModeClass()}}"></app-top-nav-bar>
-<app-content-section class="{{getDisplayModeClass()}}"></app-content-section>
-
+<div class="entireScreen" *ngIf="!isLoggedIn()">
+  <app-login-screen></app-login-screen>
+</div>
+<div class="entireScreen" *ngIf="isLoggedIn()">
+  <app-top-nav-bar class="{{getDisplayModeClass()}}"></app-top-nav-bar>
+  <app-content-section class="{{getDisplayModeClass()}}"></app-content-section>
+</div>
