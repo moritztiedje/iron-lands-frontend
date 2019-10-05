@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ContentPages, NavigateContentAction } from '../redux/active-content';
 import { PageState } from '../app.module';
