@@ -11,6 +11,7 @@ import { windowSizeReducer, WindowSizes } from './redux/window-size';
 import { disableContentReducer } from './redux/disabled-content';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { loginReducer } from './redux/login';
+import { RestClientModule } from './rest-client/rest-client.module';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { loginReducer } from './redux/login';
             windowSize: windowSizeReducer,
             enabledContent: disableContentReducer,
             username: loginReducer
-        })
+        }),
+        RestClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
