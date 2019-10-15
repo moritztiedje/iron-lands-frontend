@@ -11,6 +11,7 @@ import { Handshake } from '../rest-client/rest-client.module';
 })
 export class LoginScreenComponent implements OnInit {
     username: string;
+    password: string;
 
     constructor(private restClient: Handshake) {
     }
@@ -22,8 +23,12 @@ export class LoginScreenComponent implements OnInit {
         this.username = username;
     }
 
+    onPasswordChange(password: string) {
+        this.password = password;
+    }
+
     login() {
-        this.restClient.requestNewSession(this.username, "password");
+        this.restClient.requestNewSession(this.username, this.password);
     }
 
 }
