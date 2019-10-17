@@ -55,8 +55,11 @@ export class Handshake {
     }
 
     private hmac(stringToHash: string): string {
-        console.log("TODO: HMAC function");
-        return stringToHash + this.sessionKey + this.password;
+        let completeString = stringToHash + this.sessionKey + this.password;
+        let hash = 0;
+        for (var i = 0; i < completeString.length; i++)
+            hash = Math.imul(31, hash) + completeString.charCodeAt(i) | 0;
+        return hash + "";
     }
 }
 
