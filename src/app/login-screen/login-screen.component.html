@@ -1,3 +1,12 @@
-<input #username (keyup)="onUsernameChange(username.value)"/>
-<input #password type="password" (keyup)="onPasswordChange(password.value)" />
-<button (click)="login()">Login</button>
+<div class="login-screen">
+  <div class="title">
+    <h1>The Iron Lands</h1>
+  </div>
+  <div class="login-box">
+    Username:
+    <input #username (keyup)="onUsernameChange(username.value)" />
+    Password:
+    <input #password type="password" (keyup)="onPasswordChange(password.value)" />
+    <button (click)="login()">Login</button>
+  </div>
+</div>

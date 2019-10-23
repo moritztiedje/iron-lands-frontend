@@ -3,12 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\content-section",
+    "\\src\\app\\content-section\\location",
     "\\src\\app\\login-screen",
     "\\src\\app\\redux",
     "\\src\\app\\rest-client",
     "\\src\\assets",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\login-screen\\login-screen.component.ts",
+  "SelectedNode": "\\src\\app\\rest-client\\rest-client.module.ts",
   "PreviewInSolutionExplorer": false
 }
