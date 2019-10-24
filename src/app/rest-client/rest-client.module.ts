@@ -45,6 +45,7 @@ export class Handshake {
         let authenticationParams = new HttpParams().set('username', this.username).set('hmac', this.hmac(this.username))
 
         this.http.get('http://localhost:8080/authenticateUser', { params: authenticationParams }).subscribe((loginAttempt: LoginAttempt) => {
+            console.log(loginAttempt);
             if (loginAttempt.success) {
                 console.log("Login " + this.username);
                 this.store.dispatch(new LoginAction(this.username));
@@ -65,4 +66,14 @@ export class Handshake {
 
 class LoginAttempt {
     success: boolean;
+    playerCharacter: PlayerCharacter;
+}
+
+class PlayerCharacter {
+    agility: 10
+    characterName: "Supa Boy"
+    charisma: 10
+    intelligence: 10
+    strength: 10
+    username: "harald"
 }
