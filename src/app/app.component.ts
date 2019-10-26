@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, ChangeDetectionStrategy, ComponentRef, Ap
 import { Store } from '@ngrx/store';
 import { PageState } from './app.module';
 import { WindowResizedAction, WindowSizes } from './redux/window-size';
+import { PlayerCharacter } from './model/player-character';
 
 @Component({
     selector: 'app-root',
@@ -11,12 +12,12 @@ import { WindowResizedAction, WindowSizes } from './redux/window-size';
 export class AppComponent {
     store: Store<PageState>;
     windowSize: WindowSizes;
-    username: string;
+    playerCharacter: PlayerCharacter;
 
     constructor(store: Store<PageState>) {
         store.dispatch(new WindowResizedAction(window.innerWidth, window.innerHeight));
         store.subscribe(pageState => this.windowSize = pageState.windowSize);
-        store.subscribe(pageState => this.username = pageState.username);
+        store.subscribe(pageState => this.playerCharacter = pageState.playerCharacter);
         this.store = store;
     }
 
@@ -33,7 +34,7 @@ export class AppComponent {
     }
 
     isLoggedIn() {
-        return this.username != null && this.username != "";
+        return this.playerCharacter != null;
     }
 
 }

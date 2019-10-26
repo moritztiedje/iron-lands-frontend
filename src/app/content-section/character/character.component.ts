@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PageState } from '../../app.module';
 import { WindowSizes } from '../../redux/window-size';
+import { PlayerCharacter } from '../../model/player-character';
 
 @Component({
     selector: 'app-character',
@@ -10,18 +11,13 @@ import { WindowSizes } from '../../redux/window-size';
 })
 export class CharacterComponent {
     windowSize: WindowSizes;
+    playerCharacter: PlayerCharacter;
 
     constructor(store: Store<PageState>) {
-        store.subscribe(pageState => this.windowSize = pageState.windowSize);
-    }
-
-    videoSize() {
-        if (this.windowSize === WindowSizes.Large)
-            return 'large';
-        else if (this.windowSize === WindowSizes.Medium)
-            return 'medium';
-        else
-            return 'fullscreen';
+        store.subscribe(pageState => {
+            this.playerCharacter = pageState.playerCharacter;
+            this.windowSize = pageState.windowSize;
+        });
     }
 
 }

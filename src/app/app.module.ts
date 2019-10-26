@@ -12,6 +12,7 @@ import { disableContentReducer } from './redux/disabled-content';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { loginReducer } from './redux/login';
 import { RestClientModule } from './rest-client/rest-client.module';
+import { PlayerCharacter } from './model/player-character';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,7 @@ import { RestClientModule } from './rest-client/rest-client.module';
             activeContent: activeContentReducer,
             windowSize: windowSizeReducer,
             enabledContent: disableContentReducer,
-            username: loginReducer
+            playerCharacter: loginReducer
         }),
         RestClientModule
     ],
@@ -39,5 +40,5 @@ export interface PageState {
     activeContent: ContentPages;
     windowSize: WindowSizes;
     enabledContent: boolean;
-    username: string
+    playerCharacter: PlayerCharacter;
 }

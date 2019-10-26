@@ -5,6 +5,7 @@ import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { PageState } from '../app.module';
 import { LoginAction } from '../redux/login';
+import { PlayerCharacter } from '../model/player-character';
 
 
 @NgModule({
@@ -44,11 +45,11 @@ export class Handshake {
     private authenticateUser() {
         let authenticationParams = new HttpParams().set('username', this.username).set('hmac', this.hmac(this.username))
 
-        this.http.get('http://localhost:8080/authenticateUser', { params: authenticationParams }).subscribe((loginAttempt: LoginAttempt) => {
-            console.log(loginAttempt);
-            if (loginAttempt.success) {
+        this.http.get('http://localhost:8080/authenticateUser', { params: authenticationParams }).subscribe((loginPackage: LoginPackage) => {
+            console.log(loginPackage);
+            if (loginPackage.success) {
                 console.log("Login " + this.username);
-                this.store.dispatch(new LoginAction(this.username));
+                this.store.dispatch(new LoginAction(loginPackage.playerCharacter));
             }
             else
                 console.log('TODO: Failed login');
@@ -64,16 +65,7 @@ export class Handshake {
     }
 }
 
-class LoginAttempt {
+class LoginPackage {
     success: boolean;
     playerCharacter: PlayerCharacter;
-}
-
-class PlayerCharacter {
-    agility: 10
-    characterName: "Supa Boy"
-    charisma: 10
-    intelligence: 10
-    strength: 10
-    username: "harald"
 }
