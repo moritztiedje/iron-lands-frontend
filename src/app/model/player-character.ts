@@ -1,8 +1,14 @@
 export class PlayerCharacter {
-    agility: 10
-    characterName: "Supa Boy"
-    charisma: 10
-    intelligence: 10
-    strength: 10
-    username: "harald"
+    agility: number;
+    characterName: String;
+    charisma: number;
+    intelligence: number;
+    strength: number;
+    username: String;
+    consumables: Array<Consumable>;
+}
+
+export class Consumable {
+    itemname: String;
+    amount: number;
 }

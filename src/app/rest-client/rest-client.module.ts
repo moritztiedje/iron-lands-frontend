@@ -48,7 +48,7 @@ export class Handshake {
         this.http.get('http://localhost:8080/authenticateUser', { params: authenticationParams }).subscribe((loginPackage: LoginPackage) => {
             console.log(loginPackage);
             if (loginPackage.success) {
-                console.log("Login " + this.username);
+                console.log(loginPackage);
                 this.store.dispatch(new LoginAction(loginPackage.playerCharacter));
             }
             else
