@@ -15,7 +15,7 @@ export class CharacterComponent {
 
     constructor(store: Store<PageState>) {
         store.subscribe(pageState => {
-            this.playerCharacter = pageState.playerCharacter;
+            this.playerCharacter = pageState.session.playerCharacter;
             this.windowSize = pageState.windowSize;
         });
     }

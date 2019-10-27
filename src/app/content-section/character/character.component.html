@@ -1,4 +1,4 @@
-<div class="character-page">
+<div class="character-page" *ngIf="playerCharacter">
   <div>Character: {{playerCharacter.characterName}} - {{playerCharacter.stomachState}}</div>
   <div>Agility: {{playerCharacter.agility}}</div>
   <div>Charisma: {{playerCharacter.charisma}}</div>
