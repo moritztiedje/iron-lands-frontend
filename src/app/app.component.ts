@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PageState } from './app.module';
 import { WindowResizedAction, WindowSizes } from './redux/window-size';
-import { Session } from '../model/session';
+import { Session } from './model/session';
 
 @Component({
     selector: 'app-root',
