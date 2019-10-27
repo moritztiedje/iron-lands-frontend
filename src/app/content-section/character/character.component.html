@@ -6,6 +6,6 @@
   <div>Strength: {{playerCharacter.strength}}</div>
   <div>Inventory: </div>
   <div *ngFor="let consumable of playerCharacter.consumables">
-    {{consumable.amount}}x {{consumable.itemname}} <button>Eat</button>
+    {{consumable.amount}}x {{consumable.itemname}} <button *ngIf="playerCharacter.stomachState != 'FULL'" (click)="eat(consumable.id)">Eat</button>
   </div>
 </div>

@@ -1,22 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { PageState } from '../app.module';
-import { LoginAction } from '../redux/login';
-import { Handshake } from '../rest-client/rest-client.module';
+import { Component } from '@angular/core';
+import { ClientsProvider } from '../rest-client/rest-client.module';
 
 @Component({
     selector: 'app-login-screen',
     templateUrl: './login-screen.component.html',
-    styleUrls: ['./login-screen.component.scss']
+    styleUrls: ['./login-screen.component.scss'],
 })
-export class LoginScreenComponent implements OnInit {
+export class LoginScreenComponent {
     username: string;
     password: string;
 
-    constructor(private restClient: Handshake) {
-    }
-
-    ngOnInit() {
+    constructor(private clientsProvider: ClientsProvider) {
     }
 
     onUsernameChange(username: string) {
@@ -28,7 +22,7 @@ export class LoginScreenComponent implements OnInit {
     }
 
     login() {
-        this.restClient.requestNewSession(this.username, this.password);
+        this.clientsProvider.getHandshakeClient().requestNewSession(this.username, this.password);
     }
 
 }

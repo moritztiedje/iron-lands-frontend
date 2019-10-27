@@ -20,4 +20,8 @@ export class CharacterComponent {
         });
     }
 
+    eat(id: number) {
+        console.log("Eat: " + id);
+    }
+
 }
