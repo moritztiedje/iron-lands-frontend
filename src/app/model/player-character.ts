@@ -5,6 +5,7 @@ export class PlayerCharacter {
     intelligence: number;
     strength: number;
     username: String;
+    stomachState: String;
     consumables: Array<Consumable>;
 }
 

@@ -1,11 +1,11 @@
-<div>
-  <div>Character name: {{playerCharacter.characterName}}</div>
+<div class="character-page">
+  <div>Character: {{playerCharacter.characterName}} - {{playerCharacter.stomachState}}</div>
   <div>Agility: {{playerCharacter.agility}}</div>
   <div>Charisma: {{playerCharacter.charisma}}</div>
   <div>Intelligence: {{playerCharacter.intelligence}}</div>
   <div>Strength: {{playerCharacter.strength}}</div>
   <div>Inventory: </div>
   <div *ngFor="let consumable of playerCharacter.consumables">
-    {{consumable.amount}}x {{consumable.itemname}}
+    {{consumable.amount}}x {{consumable.itemname}} <button>Eat</button>
   </div>
 </div>
