@@ -6,9 +6,7 @@ import { UpdatePlayerAction } from '../redux/login';
 export class ConsumableClient extends RestClient {
 
     eat(consumableId: number) {
-        let requestParams = new HttpParams().set('id', consumableId.toString()).set('hmac', this.hmac(consumableId.toString()));
-
-        this.http.get(this.serverUrl + 'eat', { params: requestParams }).subscribe((playerCharacter: PlayerCharacter) => {
+        this.authenticateAndSendRequest('eat', new HttpParams().set('id', consumableId.toString()), (playerCharacter: PlayerCharacter) => {
             this.store.dispatch(new UpdatePlayerAction(playerCharacter));
         });
     }
