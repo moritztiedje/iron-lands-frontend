@@ -3,7 +3,7 @@ import { PlayerCharacter } from '../model/player-character';
 import { Session } from '../model/session';
 
 export class CreateSessionAction implements Action {
-    constructor(public sessionKey: String, public password: String) { }
+    constructor(public sessionKey: String, public password: String, public username: String) { }
 
     type: string = 'CREATE_SESSION';
 }
@@ -20,6 +20,7 @@ export function loginReducer(session: Session, action): Session {
             let newSession = new Session();
             newSession.key = action.sessionKey;
             newSession.password = action.password;
+            newSession.username = action.username;
             return newSession;
         case 'UPDATE_PLAYER':
             session.playerCharacter = action.player;

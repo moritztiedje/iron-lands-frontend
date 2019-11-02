@@ -15,7 +15,7 @@ div.login-screen {
   }
 
   div.login-box {
-    height: calc(100% - 200px);
+    height: calc(100% - 230px);
     padding-bottom: 200px;
     box-sizing: border-box;
     width: 100%;
@@ -34,5 +34,10 @@ div.login-screen {
       margin-top: 10px;
       width: 60px;
     }
+  }
+
+  div.version {
+    height: 30px;
+    padding-left: 10px;
   }
 }

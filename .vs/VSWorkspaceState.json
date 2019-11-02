@@ -3,13 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\content-section",
     "\\src\\app\\content-section\\character",
     "\\src\\app\\content-section\\location",
-    "\\src\\app\\login-screen",
-    "\\src\\app\\model",
-    "\\src\\app\\redux",
-    "\\src\\app\\rest-client"
+    "\\src\\app\\rest-client",
+    "\\src\\assets",
+    "\\src\\environments"
   ],
   "SelectedNode": "\\src\\app\\rest-client\\consumables-client.ts",
   "PreviewInSolutionExplorer": false
