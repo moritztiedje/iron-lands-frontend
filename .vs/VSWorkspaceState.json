@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\login-screen",
-    "\\src\\app\\model",
-    "\\src\\app\\redux",
-    "\\src\\app\\rest-client",
-    "\\src\\assets",
+    "\\src\\app\\content-section",
+    "\\src\\app\\content-section\\location",
+    "\\src\\app\\content-section\\location\\job-board",
+    "\\src\\app\\content-section\\location\\market",
+    "\\src\\app\\content-section\\location\\town-house",
+    "\\src\\app\\top-nav-bar",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\rest-client\\consumables-client.ts",
+  "SelectedNode": "\\src\\app\\content-section\\location\\job-board\\job-board.component.html",
   "PreviewInSolutionExplorer": false
 }

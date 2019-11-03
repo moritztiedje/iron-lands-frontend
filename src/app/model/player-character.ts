@@ -6,6 +6,9 @@ export class PlayerCharacter {
     strength: number;
     username: String;
     stomachState: String;
+    gold: number;
+    silver: number;
+    copper: number;
     consumables: Array<Consumable>;
 }
 
