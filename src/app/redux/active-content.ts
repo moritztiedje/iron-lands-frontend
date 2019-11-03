@@ -6,6 +6,9 @@ export enum ContentPages {
     contact,
     character,
     location,
+    jobBoard,
+    market,
+    townHouse,
     messages
 }
 

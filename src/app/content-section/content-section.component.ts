@@ -32,12 +32,29 @@ export class ContentSectionComponent {
         return this.selection == ContentPages.location;
     }
 
+    marketPageSelected() {
+        return this.selection == ContentPages.market;
+    }
+
+    townHousePageSelected() {
+        return this.selection == ContentPages.townHouse;
+    }
+
+    jobBoardPageSelected() {
+        return this.selection == ContentPages.jobBoard;
+    }
+
     messagesPageSelected() {
         return this.selection == ContentPages.messages;
     }
 
     unimplementedPageSelected() {
-        return this.selection !== ContentPages.character && this.selection !== ContentPages.location && this.selection !== ContentPages.messages;
+        return this.selection !== ContentPages.character
+            && this.selection !== ContentPages.location
+            && this.selection !== ContentPages.messages
+            && this.selection !== ContentPages.jobBoard
+            && this.selection !== ContentPages.market
+            && this.selection !== ContentPages.townHouse;
     }
 
 }

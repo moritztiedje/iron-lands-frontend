@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PageState } from '../../app.module';
 import { WindowSizes } from '../../redux/window-size';
 import { Store } from '@ngrx/store';
+import { NavigateContentAction, ContentPages } from '../../redux/active-content';
 
 @Component({
     selector: 'app-location',
@@ -11,7 +12,7 @@ import { Store } from '@ngrx/store';
 export class LocationComponent {
     windowSize: WindowSizes;
 
-    constructor(store: Store<PageState>) {
+    constructor(private store: Store<PageState>) {
         store.subscribe(pageState => this.windowSize = pageState.windowSize);
     }
 
@@ -20,5 +21,17 @@ export class LocationComponent {
             return 'mobile';
         else
             return 'desktop';
+    }
+
+    selectJobBoard() {
+        this.store.dispatch(new NavigateContentAction(ContentPages.jobBoard));
+    }
+
+    selectMarket() {
+        this.store.dispatch(new NavigateContentAction(ContentPages.market));
+    }
+
+    selectTownHouse() {
+        this.store.dispatch(new NavigateContentAction(ContentPages.townHouse));
     }
 }
