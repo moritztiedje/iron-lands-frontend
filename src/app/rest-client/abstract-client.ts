@@ -36,6 +36,7 @@ export abstract class RestClient {
         for (var key of parameters.keys()) {
             fullParameterString += parameters.get(key);
         }
+        console.log(fullParameterString);
 
         parameters = parameters.set('hmac', this.hmac(fullParameterString))
 
