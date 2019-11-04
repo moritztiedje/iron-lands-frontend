@@ -12,6 +12,8 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { loginReducer } from './redux/login';
 import { RestClientModule } from './rest-client/rest-client.module';
 import { Session } from './model/session';
+import { MarketListing } from './model/market';
+import { marketReducer } from './redux/market';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,8 @@ import { Session } from './model/session';
             activeContent: activeContentReducer,
             windowSize: windowSizeReducer,
             enabledContent: disableContentReducer,
-            session: loginReducer
+            session: loginReducer,
+            listings: marketReducer
         }),
         RestClientModule
     ],
@@ -40,4 +43,5 @@ export interface PageState {
     windowSize: WindowSizes;
     enabledContent: boolean;
     session: Session;
+    listings: Array<MarketListing>;
 }

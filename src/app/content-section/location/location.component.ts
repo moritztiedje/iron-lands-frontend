@@ -3,6 +3,7 @@ import { PageState } from '../../app.module';
 import { WindowSizes } from '../../redux/window-size';
 import { Store } from '@ngrx/store';
 import { NavigateContentAction, ContentPages } from '../../redux/active-content';
+import { ClientsProvider } from '../../rest-client/rest-client.module';
 
 @Component({
     selector: 'app-location',
@@ -12,7 +13,7 @@ import { NavigateContentAction, ContentPages } from '../../redux/active-content'
 export class LocationComponent {
     windowSize: WindowSizes;
 
-    constructor(private store: Store<PageState>) {
+    constructor(private store: Store<PageState>, private clientsProvider: ClientsProvider) {
         store.subscribe(pageState => this.windowSize = pageState.windowSize);
     }
 
@@ -28,10 +29,12 @@ export class LocationComponent {
     }
 
     selectMarket() {
+        this.clientsProvider.getMarketClient().requestMarketListings();
         this.store.dispatch(new NavigateContentAction(ContentPages.market));
     }
 
     selectTownHouse() {
         this.store.dispatch(new NavigateContentAction(ContentPages.townHouse));
     }
+
 }
