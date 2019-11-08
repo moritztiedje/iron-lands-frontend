@@ -5,10 +5,12 @@
     "\\src\\app",
     "\\src\\app\\content-section",
     "\\src\\app\\content-section\\character",
+    "\\src\\app\\content-section\\location",
+    "\\src\\app\\content-section\\location\\market",
+    "\\src\\app\\login-screen",
     "\\src\\app\\model",
-    "\\src\\app\\top-nav-bar",
-    "\\src\\environments"
+    "\\src\\app\\redux"
   ],
-  "SelectedNode": "\\src\\app\\model\\player-character.ts",
+  "SelectedNode": "\\src\\app\\content-section\\location\\market\\market.component.html",
   "PreviewInSolutionExplorer": false
 }
