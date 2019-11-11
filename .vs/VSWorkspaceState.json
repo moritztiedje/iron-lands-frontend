@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\content-section",
-    "\\src\\app\\content-section\\character",
     "\\src\\app\\content-section\\location",
-    "\\src\\app\\content-section\\location\\market",
+    "\\src\\app\\content-section\\location\\job-board",
     "\\src\\app\\login-screen",
     "\\src\\app\\model",
-    "\\src\\app\\redux"
+    "\\src\\app\\redux",
+    "\\src\\app\\rest-client"
   ],
-  "SelectedNode": "\\src\\app\\content-section\\location\\market\\market.component.html",
+  "SelectedNode": "\\src\\app\\content-section\\character\\character.component.html",
   "PreviewInSolutionExplorer": false
 }
