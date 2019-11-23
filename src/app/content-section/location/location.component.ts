@@ -37,4 +37,8 @@ export class LocationComponent {
         this.store.dispatch(new NavigateContentAction(ContentPages.townHouse));
     }
 
+    selectTravel() {
+        this.store.dispatch(new NavigateContentAction(ContentPages.travel));
+    }
+
 }

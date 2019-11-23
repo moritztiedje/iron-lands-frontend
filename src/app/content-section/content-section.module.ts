@@ -8,6 +8,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MarketComponent } from './location/market/market.component';
 import { TownHouseComponent } from './location/town-house/town-house.component';
 import { JobBoardComponent } from './location/job-board/job-board.component';
+import { TravelComponent } from './location/travel/travel.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { JobBoardComponent } from './location/job-board/job-board.component';
         MarketComponent,
         TownHouseComponent,
         JobBoardComponent,
+        TravelComponent,
     ],
     imports: [
         CommonModule

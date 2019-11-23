@@ -9,7 +9,8 @@ export enum ContentPages {
     jobBoard,
     market,
     townHouse,
-    messages
+    messages,
+    travel
 }
 
 export function activeContentReducer(state: ContentPages, action: NavigateContentAction) {

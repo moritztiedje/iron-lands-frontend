@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { ContentPages, NavigateContentAction } from '../redux/active-content';
 import { PageState } from '../app.module';
 import { EnableContentAction } from '../redux/disabled-content';
+import { release } from 'os';
 
 @Component({
     selector: 'app-content-section',
@@ -48,13 +49,18 @@ export class ContentSectionComponent {
         return this.selection == ContentPages.messages;
     }
 
+    travelPageSelected() {
+        return this.selection == ContentPages.travel;
+    }
+
     unimplementedPageSelected() {
         return this.selection !== ContentPages.character
             && this.selection !== ContentPages.location
             && this.selection !== ContentPages.messages
             && this.selection !== ContentPages.jobBoard
             && this.selection !== ContentPages.market
-            && this.selection !== ContentPages.townHouse;
+            && this.selection !== ContentPages.townHouse
+            && this.selection !== ContentPages.travel;
     }
 
 }
