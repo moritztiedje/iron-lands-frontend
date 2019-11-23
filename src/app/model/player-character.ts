@@ -10,6 +10,8 @@ export class PlayerCharacter {
     silver: number;
     copper: number;
     consumables: Array<Consumable>;
+    xcoordinate: number;
+    ycoordinate: number;
 }
 
 export class Consumable {

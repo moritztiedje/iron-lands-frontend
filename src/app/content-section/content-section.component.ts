@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { ContentPages, NavigateContentAction } from '../redux/active-content';
 import { PageState } from '../app.module';
 import { EnableContentAction } from '../redux/disabled-content';
-import { release } from 'os';
 
 @Component({
     selector: 'app-content-section',
