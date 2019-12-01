@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { CreateSessionAction, UpdatePlayerAction } from '../redux/login';
+import { CreateSessionAction, UpdatePlayerAction, UpdateDailyJobAction } from '../redux/login';
 import { PlayerCharacter } from '../model/player-character';
 import { RestClient } from './abstract-client';
 
@@ -16,6 +16,7 @@ export class Handshake extends RestClient{
         this.authenticateAndSendRequest('authenticateUser', new HttpParams(), (loginPackage: LoginPackage) => {
             if (loginPackage.success) {
                 this.store.dispatch(new UpdatePlayerAction(loginPackage.playerCharacter));
+                this.store.dispatch(new UpdateDailyJobAction(loginPackage.dailyJob));
             }
             else
                 console.log('TODO: Failed login');
@@ -26,4 +27,5 @@ export class Handshake extends RestClient{
 class LoginPackage {
     success: boolean;
     playerCharacter: PlayerCharacter;
+    dailyJob: string;
 }
