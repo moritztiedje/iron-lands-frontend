@@ -30,11 +30,11 @@ export class TravelComponent {
     }
 
     goNorth() {
-        this.travelClient.createTravelJob(this.coordinate.x, this.coordinate.y - 1);
+        this.travelClient.createTravelJob(this.coordinate.x, this.coordinate.y + 1);
     }
 
     goSouth() {
-        this.travelClient.createTravelJob(this.coordinate.x, this.coordinate.y + 1);
+        this.travelClient.createTravelJob(this.coordinate.x, this.coordinate.y - 1);
     }
 }
 
