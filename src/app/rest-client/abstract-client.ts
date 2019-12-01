@@ -2,7 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { PageState } from '../app.module';
 import { environment } from '../../environments/environment';
-import { Observer } from 'rxjs';
 
 export abstract class RestClient {
     private password: string;

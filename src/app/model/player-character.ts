@@ -19,7 +19,3 @@ export class Consumable {
     amount: number;
 }
 
-export class TravelJob {
-    xcoordinate: number;
-    ycoordinate: number;
-}

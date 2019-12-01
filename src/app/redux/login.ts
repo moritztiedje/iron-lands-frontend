@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { PlayerCharacter, TravelJob } from '../model/player-character';
+import { PlayerCharacter } from '../model/player-character';
 import { Session } from '../model/session';
 
 export class CreateSessionAction implements Action {
@@ -14,11 +14,11 @@ export class UpdatePlayerAction implements Action {
     type: string = 'UPDATE_PLAYER';
 }
 
-export class UpdateTravelJobAction implements Action {
-    activeJob: string;
+export class UpdateDailyJobAction implements Action {
+    dailyJob: string;
 
-    constructor(travelJob: TravelJob) {
-        this.activeJob = "Travel to: " + travelJob.xcoordinate + " " + travelJob.ycoordinate;
+    constructor(dailyJob: string) {
+        this.dailyJob = dailyJob;
     }
 
     type: string = 'UPDATE_JOB';
@@ -36,7 +36,7 @@ export function loginReducer(session: Session, action): Session {
             session.playerCharacter = action.player;
             return session;
         case 'UPDATE_JOB':
-            session.dailyJob = action.activeJob;
+            session.dailyJob = action.dailyJob;
         default:
             return session;
     }

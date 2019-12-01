@@ -14,9 +14,7 @@ export class Handshake extends RestClient{
 
     private authenticateUser() {
         this.authenticateAndSendRequest('authenticateUser', new HttpParams(), (loginPackage: LoginPackage) => {
-            console.log(loginPackage);
             if (loginPackage.success) {
-                console.log(loginPackage);
                 this.store.dispatch(new UpdatePlayerAction(loginPackage.playerCharacter));
             }
             else
