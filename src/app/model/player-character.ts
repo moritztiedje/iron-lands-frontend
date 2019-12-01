@@ -18,3 +18,8 @@ export class Consumable {
     itemname: String;
     amount: number;
 }
+
+export class TravelJob {
+    xcoordinate: number;
+    ycoordinate: number;
+}

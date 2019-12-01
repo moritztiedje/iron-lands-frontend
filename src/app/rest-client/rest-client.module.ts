@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ConsumableClient } from './consumables-client';
 import { MarketClient } from './market-client';
+import { TravelClient } from './travel-client';
 
 
 @NgModule({
@@ -28,11 +29,13 @@ export class ClientsProvider {
     private handshakeClient: Handshake;
     private consumablesClient: ConsumableClient;
     private marketClient: MarketClient;
+    private travelClient: TravelClient;
 
     constructor(private http: HttpClient, private store: Store<PageState>) {
         this.handshakeClient = new Handshake(http, store);
         this.consumablesClient = new ConsumableClient(http, store);
         this.marketClient = new MarketClient(http, store);
+        this.travelClient = new TravelClient(http, store);
     }
 
     public getHandshakeClient(): Handshake {
@@ -45,6 +48,10 @@ export class ClientsProvider {
 
     public getMarketClient(): MarketClient {
         return this.marketClient;
+    }
+
+    public getTravelClient(): TravelClient {
+        return this.travelClient;
     }
 
 }

@@ -5,4 +5,5 @@ export class Session {
     key: string;
     password: string;
     username: string;
+    dailyJob: string;
 }

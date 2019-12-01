@@ -13,11 +13,13 @@ import { ClientsProvider } from '../../rest-client/rest-client.module';
 export class CharacterComponent {
     windowSize: WindowSizes;
     playerCharacter: PlayerCharacter;
+    dailyJob: string;
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {
         store.subscribe(pageState => {
             this.playerCharacter = pageState.session.playerCharacter;
             this.windowSize = pageState.windowSize;
+            this.dailyJob = pageState.session.dailyJob;
         });
     }
 
