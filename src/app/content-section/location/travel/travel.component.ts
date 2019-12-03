@@ -10,7 +10,7 @@ import { TravelClient } from '../../../rest-client/travel-client';
   styleUrls: ['./travel.component.scss']
 })
 export class TravelComponent {
-    private coordinate: Coordinate = new Coordinate();
+    coordinate: Coordinate = new Coordinate();
     private travelClient: TravelClient;
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {

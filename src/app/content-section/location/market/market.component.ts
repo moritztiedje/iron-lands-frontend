@@ -9,7 +9,7 @@ import { ClientsProvider } from '../../../rest-client/rest-client.module';
   styleUrls: ['./market.component.scss']
 })
 export class MarketComponent {
-    private marketListings = new Array();
+    marketListings = new Array();
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {
         store.subscribe(pageState => this.marketListings = pageState.listings);
