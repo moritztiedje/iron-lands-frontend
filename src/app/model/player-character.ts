@@ -7,8 +7,6 @@ export class PlayerCharacter {
     username: String;
     stomachState: String;
     nourishment: number;
-    gold: number;
-    silver: number;
     copper: number;
     consumables: Array<Consumable>;
     xcoordinate: number;

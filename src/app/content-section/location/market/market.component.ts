@@ -10,12 +10,20 @@ import { ClientsProvider } from '../../../rest-client/rest-client.module';
 })
 export class MarketComponent {
     marketListings = new Array();
+    consumables = new Array();
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {
-        store.subscribe(pageState => this.marketListings = pageState.listings);
+        store.subscribe(pageState => {
+            this.marketListings = pageState.listings;
+            this.consumables = pageState.session.playerCharacter.consumables;
+        });
     }
 
     buy(id: number) {
         this.clientsProvider.getMarketClient().buy(id);
+    }
+
+    sell(id: number, price: number) {
+        this.clientsProvider.getMarketClient().sellconsumable(id, price);
     }
 }

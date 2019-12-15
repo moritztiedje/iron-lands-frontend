@@ -1,9 +1,21 @@
-<p>market works!</p>
 <ul>
-  <li>Buy Food</li>
-  <li>Buy Equipment</li>
-  <li>Buy Clothes</li>
+  <li>
+    <b>Trade Food:</b><br />
+    <u>Market Listings:</u>
+    <div *ngFor="let marketListing of marketListings">
+      {{marketListing.itemname}} can be bought for {{marketListing.price}} coppers. <button (click)="buy(marketListing.id)">Buy</button>
+    </div>
+    <u>Inventory:</u>
+    <div *ngFor="let consumable of consumables">
+      <i>{{consumable.amount}}x {{consumable.itemname}}</i> - Post on market for: <input #price type="number"/> <button (click)="sell(consumable.id,price.value)">Sell</button>
+    </div>
+  </li>
+  <li>
+    <b>Trade Equipment</b><br />
+    -- Under Construction
+  </li>
+  <li>
+    <b>Trade Clothes</b><br />
+    -- Under Construction
+  </li>
 </ul>
-<div *ngFor="let marketListing of marketListings">
-  {{marketListing.itemname}} can be bought for {{marketListing.price}} coppers. <button (click)="buy(marketListing.id)">Buy</button>
-</div>

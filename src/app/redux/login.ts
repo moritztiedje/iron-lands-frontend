@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { PlayerCharacter } from '../model/player-character';
+import { PlayerCharacter, Consumable } from '../model/player-character';
 import { Session } from '../model/session';
 
 export class CreateSessionAction implements Action {
@@ -15,13 +15,22 @@ export class UpdatePlayerAction implements Action {
 }
 
 export class UpdateDailyJobAction implements Action {
-    dailyJob: string;
-
-    constructor(dailyJob: string) {
-        this.dailyJob = dailyJob;
-    }
+    
+    constructor(public dailyJob: string) { }
 
     type: string = 'UPDATE_JOB';
+}
+
+export class UpdateConsumablesAction implements Action {
+    constructor(public consumables: Array<Consumable>) { }
+
+    type: string = 'UPDATE_CONSUMABLES';
+}
+
+export class UpdateCopperAction implements Action {
+    constructor(public copper: number) { }
+
+    type: string = 'UPDATE_COPPER';
 }
 
 export function loginReducer(session: Session, action): Session {
@@ -37,6 +46,13 @@ export function loginReducer(session: Session, action): Session {
             return session;
         case 'UPDATE_JOB':
             session.dailyJob = action.dailyJob;
+            return session;
+        case 'UPDATE_CONSUMABLES':
+            session.playerCharacter.consumables = action.consumables;
+            return session;
+        case 'UPDATE_COPPER':
+            session.playerCharacter.copper = action.copper;
+            return session;
         default:
             return session;
     }
