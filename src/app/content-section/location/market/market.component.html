@@ -3,7 +3,7 @@
     <b>Trade Food:</b><br />
     <u>Market Listings:</u>
     <div *ngFor="let marketListing of marketListings">
-      {{marketListing.itemname}} can be bought for {{marketListing.price}} coppers. <button (click)="buy(marketListing.id)">Buy</button>
+      {{marketListing.itemname}} can be bought for {{marketListing.price}} coppers from {{marketListing.owner}}. <button (click)="buy(marketListing.id)">Buy</button>
     </div>
     <u>Inventory:</u>
     <div *ngFor="let consumable of consumables">
