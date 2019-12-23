@@ -9,6 +9,7 @@ export class PlayerCharacter {
     nourishment: number;
     copper: number;
     consumables: Array<Consumable>;
+    farms: Array<Farm>;
     xcoordinate: number;
     ycoordinate: number;
 }
@@ -16,5 +17,12 @@ export class PlayerCharacter {
 export class Consumable {
     itemname: String;
     amount: number;
+}
+
+export class Farm {
+    xcoordinate: number;
+    ycoordinate: number;
+    state: number;
+    progression: number;
 }
 

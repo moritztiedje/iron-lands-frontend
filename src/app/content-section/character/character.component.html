@@ -11,4 +11,8 @@
   <div *ngFor="let consumable of playerCharacter.consumables">
     {{consumable.amount}}x {{consumable.itemname}} <button *ngIf="playerCharacter.stomachState != 'FULL'" (click)="eat(consumable.id)">Eat</button>
   </div>
+  <div>Properties: </div>
+  <div *ngFor="let farm of playerCharacter.farms">
+    Farm at ({{farm.xcoordinate}},{{farm.ycoordinate}}) in state: {{farm.state}}
+  </div>
 </div>
