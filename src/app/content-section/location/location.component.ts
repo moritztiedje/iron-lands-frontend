@@ -41,4 +41,8 @@ export class LocationComponent {
         this.store.dispatch(new NavigateContentAction(ContentPages.travel));
     }
 
+    selectManageProperties() {
+        this.store.dispatch(new NavigateContentAction(ContentPages.manageProperties));
+    }
+
 }

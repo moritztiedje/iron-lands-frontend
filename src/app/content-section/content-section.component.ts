@@ -52,6 +52,10 @@ export class ContentSectionComponent {
         return this.selection == ContentPages.travel;
     }
 
+    managePropertiesSelected() {
+        return this.selection == ContentPages.manageProperties;
+    }
+
     unimplementedPageSelected() {
         return this.selection !== ContentPages.character
             && this.selection !== ContentPages.location
@@ -59,7 +63,8 @@ export class ContentSectionComponent {
             && this.selection !== ContentPages.jobBoard
             && this.selection !== ContentPages.market
             && this.selection !== ContentPages.townHouse
-            && this.selection !== ContentPages.travel;
+            && this.selection !== ContentPages.travel
+            && this.selection !== ContentPages.manageProperties;
     }
 
 }

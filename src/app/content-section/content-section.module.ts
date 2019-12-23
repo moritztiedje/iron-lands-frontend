@@ -9,6 +9,7 @@ import { MarketComponent } from './location/market/market.component';
 import { TownHouseComponent } from './location/town-house/town-house.component';
 import { JobBoardComponent } from './location/job-board/job-board.component';
 import { TravelComponent } from './location/travel/travel.component';
+import { ManagePropertiesComponent } from './location/manage-properties/manage-properties.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { TravelComponent } from './location/travel/travel.component';
         TownHouseComponent,
         JobBoardComponent,
         TravelComponent,
+        ManagePropertiesComponent,
     ],
     imports: [
         CommonModule
