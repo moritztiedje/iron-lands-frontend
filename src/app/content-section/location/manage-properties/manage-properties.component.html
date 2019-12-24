@@ -1,1 +1,12 @@
-<p>manage-properties works!</p>
+<div>Farms at my location:</div>
+<div *ngFor="let farm of farms">
+  <div *ngIf="isAtPlayerPosition(farm)">
+    Farm is currently {{display(farm.state)}}. Progression: {{farm.progression}}% <button>Work here</button>
+  </div>
+</div>
+<div>Farms at other locations:</div>
+<div *ngFor="let farm of farms">
+  <div *ngIf="!isAtPlayerPosition(farm)">
+    Farm at ({{farm.xcoordinate}},{{farm.ycoordinate}}) is currently {{display(farm.state)}}. Progression: {{farm.progression}}%
+  </div>
+</div>
