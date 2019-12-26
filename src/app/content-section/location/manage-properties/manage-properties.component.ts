@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { PageState } from '../../../app.module';
 import { ClientsProvider } from '../../../rest-client/rest-client.module';
 import { Farm } from '../../../model/player-character';
+import { ManagePropertiesClient } from '../../../rest-client/manage-properties-client';
 
 @Component({
     selector: 'app-manage-properties',
@@ -13,8 +14,10 @@ export class ManagePropertiesComponent {
 
     farms = new Array();
     playerlocation: Point = new Point(0, 0);
+    restClient: ManagePropertiesClient;
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {
+        this.restClient = clientsProvider.getManagePropertiesClient();
         store.subscribe(pageState => {
             let playerCharacter = pageState.session.playerCharacter;
             this.farms = playerCharacter.farms;
@@ -34,6 +37,10 @@ export class ManagePropertiesComponent {
 
     isAtPlayerPosition(farm: Farm): boolean {
         return farm.xcoordinate == this.playerlocation.x && farm.ycoordinate == this.playerlocation.y
+    }
+
+    workOn(farmid: string) {
+        this.restClient.workon(farmid);
     }
 }
 

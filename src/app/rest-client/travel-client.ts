@@ -1,6 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { UpdateDailyJobAction } from '../redux/login';
 import { RestClient } from './abstract-client';
+import { DailyJobInfo } from '../model/daily-job-info';
 
 export class TravelClient extends RestClient {
 
@@ -16,6 +17,3 @@ export class TravelClient extends RestClient {
 
 }
 
-class DailyJobInfo {
-    info: string;
-}

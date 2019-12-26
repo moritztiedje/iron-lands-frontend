@@ -1,11 +1,12 @@
-import { NgModule, Injectable } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Injectable, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { PageState } from '../app.module';
-import { Handshake } from './handshake-client';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { ConsumableClient } from './consumables-client';
+import { Handshake } from './handshake-client';
+import { ManagePropertiesClient } from './manage-properties-client';
 import { MarketClient } from './market-client';
 import { TravelClient } from './travel-client';
 
@@ -30,12 +31,14 @@ export class ClientsProvider {
     private consumablesClient: ConsumableClient;
     private marketClient: MarketClient;
     private travelClient: TravelClient;
+    private managePropertiesClient: ManagePropertiesClient;
 
     constructor(private http: HttpClient, private store: Store<PageState>) {
         this.handshakeClient = new Handshake(http, store);
         this.consumablesClient = new ConsumableClient(http, store);
         this.marketClient = new MarketClient(http, store);
         this.travelClient = new TravelClient(http, store);
+        this.managePropertiesClient = new ManagePropertiesClient(http, store);
     }
 
     public getHandshakeClient(): Handshake {
@@ -52,6 +55,10 @@ export class ClientsProvider {
 
     public getTravelClient(): TravelClient {
         return this.travelClient;
+    }
+
+    public getManagePropertiesClient(): ManagePropertiesClient {
+        return this.managePropertiesClient;
     }
 
 }
