@@ -28,6 +28,7 @@ export abstract class RestClient {
         return hash + "";
     }
 
+    //TODO: Split this method
     protected authenticateAndSendRequest(requestUrl: String, parameters: HttpParams, resultProcessor) {
         parameters = parameters.set('username', this.username);
 
