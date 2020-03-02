@@ -1,4 +1,4 @@
-<p>Today's job board:</p>
+<p>Today's job board at your location:</p>
 <ul>
   <li *ngFor="let jobPost of farmJobPosts">
     For {{jobPost.salary}} coppers work at {{jobPost.farm.name}} which ist currently {{jobPost.farm.displayState()}}. <button (click)="accept(jobPost.id)">Accept Job</button>
