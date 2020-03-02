@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PageState } from '../../../app.module';
 import { ClientsProvider } from '../../../rest-client/rest-client.module';
-import { Farm, displayState } from '../../../model/player-character';
+import { Farm } from '../../../model/player-character';
 import { ManagePropertiesClient } from '../../../rest-client/manage-properties-client';
 
 @Component({
