@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PageState } from '../../../app.module';
 import { ClientsProvider } from '../../../rest-client/rest-client.module';
-import { Farm } from '../../../model/player-character';
+import { Farm, displayState } from '../../../model/player-character';
 import { ManagePropertiesClient } from '../../../rest-client/manage-properties-client';
 
 @Component({
@@ -23,16 +23,6 @@ export class ManagePropertiesComponent {
             this.farms = playerCharacter.farms;
             this.playerlocation = new Point(playerCharacter.xcoordinate, playerCharacter.ycoordinate);
         });
-    }
-
-    display(farmState: string): string {
-        switch (farmState) {
-            case 'UNUSED': return 'not being used';
-            case 'PLANTING_POTATOES': return 'being planted with potatoes';
-            case 'GROWING_POTATOES': return 'growing potatoes';
-            case 'HARVESTING_POTATOES': return 'being harvested for potatoes';
-            default: return farmState;
-        }
     }
 
     isAtPlayerPosition(farm: Farm): boolean {

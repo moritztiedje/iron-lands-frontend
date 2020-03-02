@@ -9,6 +9,7 @@ import { Handshake } from './handshake-client';
 import { ManagePropertiesClient } from './manage-properties-client';
 import { MarketClient } from './market-client';
 import { TravelClient } from './travel-client';
+import { JobBoardClient } from './job-board-client';
 
 
 @NgModule({
@@ -26,39 +27,32 @@ export class RestClientModule {
     providedIn: 'root'
 })
 export class ClientsProvider {
-    
-    private handshakeClient: Handshake;
-    private consumablesClient: ConsumableClient;
-    private marketClient: MarketClient;
-    private travelClient: TravelClient;
-    private managePropertiesClient: ManagePropertiesClient;
-
+ 
     constructor(private http: HttpClient, private store: Store<PageState>) {
-        this.handshakeClient = new Handshake(http, store);
-        this.consumablesClient = new ConsumableClient(http, store);
-        this.marketClient = new MarketClient(http, store);
-        this.travelClient = new TravelClient(http, store);
-        this.managePropertiesClient = new ManagePropertiesClient(http, store);
     }
 
     public getHandshakeClient(): Handshake {
-        return this.handshakeClient;
+        return new Handshake(this.http, this.store);
     }
 
     public getConsumablesClient(): ConsumableClient {
-        return this.consumablesClient;
+        return new ConsumableClient(this.http, this.store);
     }
 
     public getMarketClient(): MarketClient {
-        return this.marketClient;
+        return new MarketClient(this.http, this.store);
     }
 
     public getTravelClient(): TravelClient {
-        return this.travelClient;
+        return new TravelClient(this.http, this.store);
     }
 
     public getManagePropertiesClient(): ManagePropertiesClient {
-        return this.managePropertiesClient;
+        return new ManagePropertiesClient(this.http, this.store);
+    }
+
+    public getJobBoardClient(): JobBoardClient {
+        return new JobBoardClient(this.http, this.store);
     }
 
 }

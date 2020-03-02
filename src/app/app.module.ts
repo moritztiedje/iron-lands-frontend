@@ -14,6 +14,8 @@ import { RestClientModule } from './rest-client/rest-client.module';
 import { Session } from './model/session';
 import { MarketListing } from './model/market';
 import { marketReducer } from './redux/market';
+import { FarmJobPost } from './model/job-board';
+import { jobBoardReducer } from './redux/job-board';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import { marketReducer } from './redux/market';
             windowSize: windowSizeReducer,
             enabledContent: disableContentReducer,
             session: loginReducer,
-            listings: marketReducer
+            listings: marketReducer,
+            jobPosts: jobBoardReducer
         }),
         RestClientModule
     ],
@@ -44,4 +47,5 @@ export interface PageState {
     enabledContent: boolean;
     session: Session;
     listings: Array<MarketListing>;
+    jobPosts: Array<FarmJobPost>;
 }

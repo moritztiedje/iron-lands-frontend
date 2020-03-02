@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FarmJobPost } from '../../../model/job-board';
+import { Store } from '@ngrx/store';
+import { PageState } from '../../../app.module';
+import { ClientsProvider } from '../../../rest-client/rest-client.module';
+import { JobBoardClient } from '../../../rest-client/job-board-client';
 
 @Component({
-  selector: 'app-job-board',
-  templateUrl: './job-board.component.html',
-  styleUrls: ['./job-board.component.scss']
+    selector: 'app-job-board',
+    templateUrl: './job-board.component.html',
+    styleUrls: ['./job-board.component.scss']
 })
-export class JobBoardComponent implements OnInit {
+export class JobBoardComponent {
 
-  constructor() { }
+    farmJobPosts = new Array<FarmJobPost>();
+    restClient: JobBoardClient;
 
-  ngOnInit() {
-  }
+    constructor(store: Store<PageState>, clientsProvider: ClientsProvider) {
+        store.subscribe(pageState => {
+            this.farmJobPosts = pageState.jobPosts;
+        });
+        this.restClient = clientsProvider.getJobBoardClient();
+        this.restClient.requestMarketListings();
+    }
 
+    accept(id: number) {
+        console.log(id);
+    }
 }

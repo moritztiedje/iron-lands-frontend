@@ -1,5 +1,11 @@
-<p>job-board works!</p>
+<p>Today's job board:</p>
 <ul>
-  <li>Post Day Job</li>
-  <li>Accept Day Job</li>
+  <li *ngFor="let jobPost of farmJobPosts">
+    For {{jobPost.salary}} coppers work at {{jobPost.farm.name}} which ist currently {{jobPost.farm.displayState()}}. <button (click)="accept(jobPost.id)">Accept Job</button>
+  </li>
+</ul>
+
+<ul>
+  <li>TODO: Post Day Job</li>
+  <li>TODO: Accept Day Job</li>
 </ul>

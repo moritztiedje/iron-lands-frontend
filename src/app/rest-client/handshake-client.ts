@@ -1,6 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { CreateSessionAction, UpdatePlayerAction, UpdateDailyJobAction } from '../redux/login';
-import { PlayerCharacter } from '../model/player-character';
+import { PlayerCharacter, Farm } from '../model/player-character';
 import { RestClient } from './abstract-client';
 
 export class Handshake extends RestClient{
@@ -15,6 +15,12 @@ export class Handshake extends RestClient{
     private authenticateUser() {
         this.authenticateAndSendRequest('authenticateUser', new HttpParams(), (loginPackage: LoginPackage) => {
             if (loginPackage.success) {
+                loginPackage.playerCharacter.farms = loginPackage.playerCharacter.farms.map(
+                    function (farm: Farm) {
+                        // Cast implicit to real object, so that Farm functions can be used.
+                        return new Farm(farm);
+                    }
+                )
                 this.store.dispatch(new UpdatePlayerAction(loginPackage.playerCharacter));
                 this.store.dispatch(new UpdateDailyJobAction(loginPackage.dailyJob));
             }
