@@ -20,7 +20,7 @@ export class JobBoardComponent {
             this.farmJobPosts = pageState.jobPosts;
         });
         this.restClient = clientsProvider.getJobBoardClient();
-        this.restClient.requestMarketListings();
+        this.restClient.requestJobPosts();
     }
 
     accept(id: number) {

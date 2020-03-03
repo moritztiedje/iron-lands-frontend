@@ -4,10 +4,10 @@ import { FarmJobPost } from '../model/job-board';
 import { UpdateJobBoardAction, DeleteJobPostAction } from '../redux/job-board';
 import { Farm } from '../model/player-character';
 import { DailyJobInfo } from '../model/daily-job-info';
-import { UpdateDailyJobAction } from '../redux/login';
+import { UpdateDailyJobAction, UpdateCopperAction } from '../redux/login';
 
 export class JobBoardClient extends RestClient {
-    requestMarketListings() {
+    requestJobPosts() {
         this.authenticateAndSendRequest('requestJobPosts', new HttpParams(), (jobPosts: Array<FarmJobPost>) => {
             jobPosts.forEach(
                 function (jobPost: FarmJobPost) {
@@ -24,5 +24,12 @@ export class JobBoardClient extends RestClient {
             this.store.dispatch(new UpdateDailyJobAction(dailyJobInfo.info));
             this.store.dispatch(new DeleteJobPostAction(jobPostId));
         });
+    }
+
+    postFarmJob(farmId: number, salary: number) {
+        this.authenticateAndSendRequest('postFarmJob', new HttpParams()
+            .set("farmId", farmId.toString()).set("salary", salary.toString()), (copperUpdate: number) => {
+                this.store.dispatch(new UpdateCopperAction(copperUpdate));
+            });
     }
 }

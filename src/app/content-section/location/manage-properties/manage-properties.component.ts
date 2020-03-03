@@ -4,6 +4,7 @@ import { PageState } from '../../../app.module';
 import { ClientsProvider } from '../../../rest-client/rest-client.module';
 import { Farm } from '../../../model/player-character';
 import { ManagePropertiesClient } from '../../../rest-client/manage-properties-client';
+import { JobBoardClient } from '../../../rest-client/job-board-client';
 
 @Component({
     selector: 'app-manage-properties',
@@ -14,10 +15,12 @@ export class ManagePropertiesComponent {
 
     farms = new Array();
     playerlocation: Point = new Point(0, 0);
-    restClient: ManagePropertiesClient;
+    managePropertiesClient: ManagePropertiesClient;
+    jobBoardClient: JobBoardClient;
 
     constructor(store: Store<PageState>, private clientsProvider: ClientsProvider) {
-        this.restClient = clientsProvider.getManagePropertiesClient();
+        this.managePropertiesClient = clientsProvider.getManagePropertiesClient();
+        this.jobBoardClient = clientsProvider.getJobBoardClient();
         store.subscribe(pageState => {
             let playerCharacter = pageState.session.playerCharacter;
             this.farms = playerCharacter.farms;
@@ -30,7 +33,11 @@ export class ManagePropertiesComponent {
     }
 
     workOn(farmid: string) {
-        this.restClient.workon(farmid);
+        this.managePropertiesClient.workon(farmid);
+    }
+
+    postJob(farmid: number, salary: number) {
+        this.jobBoardClient.postFarmJob(farmid, salary);
     }
 }
 

@@ -1,7 +1,9 @@
 <div>Farms at my location:</div>
 <div *ngFor="let farm of farms">
   <div *ngIf="isAtPlayerPosition(farm)">
-    Farm is currently {{farm.displayState()}}. Progression: {{farm.progression}}% <button (click)="workOn(farm.id)">Work here today</button>
+    Farm is currently {{farm.displayState()}}. Progression: {{farm.progression}}%
+    <button (click)="workOn(farm.id)">Work here today</button>
+    <button (click)="postJob(farm.id, 10)">Hire someone for 10 coppers</button>
   </div>
 </div>
 <div>Farms at other locations:</div>
