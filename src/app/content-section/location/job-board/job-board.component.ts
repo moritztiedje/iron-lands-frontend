@@ -24,6 +24,6 @@ export class JobBoardComponent {
     }
 
     accept(id: number) {
-        console.log(id);
+        this.restClient.acceptFarmJob(id);
     }
 }
