@@ -6,10 +6,9 @@ import { Store } from '@ngrx/store';
 import { PageState } from '../app.module';
 import { ConsumableClient } from './consumables-client';
 import { Handshake } from './handshake-client';
-import { ManagePropertiesClient } from './manage-properties-client';
 import { MarketClient } from './market-client';
 import { TravelClient } from './travel-client';
-import { JobBoardClient } from './job-board-client';
+import { FarmJobClient } from './farm-job-client';
 
 
 @NgModule({
@@ -47,12 +46,8 @@ export class ClientsProvider {
         return new TravelClient(this.http, this.store);
     }
 
-    public getManagePropertiesClient(): ManagePropertiesClient {
-        return new ManagePropertiesClient(this.http, this.store);
-    }
-
-    public getJobBoardClient(): JobBoardClient {
-        return new JobBoardClient(this.http, this.store);
+    public getFarmJobClient(): FarmJobClient {
+        return new FarmJobClient(this.http, this.store);
     }
 
 }

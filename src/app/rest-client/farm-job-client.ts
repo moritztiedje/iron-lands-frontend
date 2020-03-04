@@ -6,9 +6,9 @@ import { Farm } from '../model/player-character';
 import { DailyJobInfo } from '../model/daily-job-info';
 import { UpdateDailyJobAction, UpdateCopperAction } from '../redux/login';
 
-export class JobBoardClient extends RestClient {
+export class FarmJobClient extends RestClient {
     requestJobPosts() {
-        this.authenticateAndSendRequest('requestJobPosts', new HttpParams(), (jobPosts: Array<FarmJobPost>) => {
+        this.authenticateAndSendRequest('requestFarmJobPosts', new HttpParams(), (jobPosts: Array<FarmJobPost>) => {
             jobPosts.forEach(
                 function (jobPost: FarmJobPost) {
                     // Cast implicit to real object, so that Farm functions can be used.
@@ -19,17 +19,23 @@ export class JobBoardClient extends RestClient {
         });
     }
 
-    acceptFarmJob(jobPostId: number) {
+    acceptJob(jobPostId: number) {
         this.authenticateAndSendRequest('acceptFarmJobPost', new HttpParams().set("id", jobPostId.toString()), (dailyJobInfo: DailyJobInfo) => {
             this.store.dispatch(new UpdateDailyJobAction(dailyJobInfo.info));
             this.store.dispatch(new DeleteJobPostAction(jobPostId));
         });
     }
 
-    postFarmJob(farmId: number, salary: number) {
+    postJob(farmId: number, salary: number) {
         this.authenticateAndSendRequest('postFarmJob', new HttpParams()
             .set("farmId", farmId.toString()).set("salary", salary.toString()), (copperUpdate: number) => {
                 this.store.dispatch(new UpdateCopperAction(copperUpdate));
             });
+    }
+
+    workon(farmId: string) {
+        this.authenticateAndSendRequest('workonfarm', new HttpParams().set('id', farmId.toString()), (dailyJobInfo: DailyJobInfo) => {
+            this.store.dispatch(new UpdateDailyJobAction(dailyJobInfo.info));
+        });
     }
 }

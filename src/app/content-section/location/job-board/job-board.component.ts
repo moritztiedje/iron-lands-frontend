@@ -3,7 +3,7 @@ import { FarmJobPost } from '../../../model/job-board';
 import { Store } from '@ngrx/store';
 import { PageState } from '../../../app.module';
 import { ClientsProvider } from '../../../rest-client/rest-client.module';
-import { JobBoardClient } from '../../../rest-client/job-board-client';
+import { FarmJobClient } from '../../../rest-client/farm-job-client';
 
 @Component({
     selector: 'app-job-board',
@@ -13,17 +13,17 @@ import { JobBoardClient } from '../../../rest-client/job-board-client';
 export class JobBoardComponent {
 
     farmJobPosts = new Array<FarmJobPost>();
-    restClient: JobBoardClient;
+    restClient: FarmJobClient;
 
     constructor(store: Store<PageState>, clientsProvider: ClientsProvider) {
         store.subscribe(pageState => {
             this.farmJobPosts = pageState.jobPosts;
         });
-        this.restClient = clientsProvider.getJobBoardClient();
+        this.restClient = clientsProvider.getFarmJobClient();
         this.restClient.requestJobPosts();
     }
 
     accept(id: number) {
-        this.restClient.acceptFarmJob(id);
+        this.restClient.acceptJob(id);
     }
 }
